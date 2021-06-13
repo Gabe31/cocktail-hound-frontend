@@ -43,3 +43,32 @@ function render(cocktail) {
     const neighborhoodId = parseInt(document.querySelector('#neighborhoods').value)
     postAdventures (titleInput, descriptionInput, barInput, neighborhoodId)
   }
+
+  function postCocktails(title, description, bar, neighborhood_id) {
+    let bodyObj = {title, description, bar, category_id}
+    
+    fetch(endPoint, {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(bodyObj)
+    })
+    .then(response => response.json())
+    .then(cocktail => {
+      const cocktailData = cocktail.data
+      
+      let newCocktail = new Cocktail(cocktailData, cocktailData.attributes)
+
+      document.querySelector('#cocktail-container').innerHTML += newCocktail.renderCocktailCard()
+})
+}
+
+
+function deleteCocktail(id) {
+
+ fetch(`${endPoint}/${id}`, {
+    method: "DELETE" 
+})
+  .then(response => response.json())
+  .then(response => console.log(response))
+
+}
