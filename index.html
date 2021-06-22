@@ -3,8 +3,10 @@
     <head>
         <meta charset="utf-8">
         <title></title>
-        <script type="text/javascript" src="index.js"></script>
-    </head>
+        <script type="text/javascript" src="src/cocktail.js"></script>
+        <script type="text/javascript" src="src/index.js"></script>
+        <link rel="stylesheet" href="style.css">
+      </head>
     
     <body>
         <h1>Cocktail Hound</h1><br>
@@ -13,19 +15,19 @@
     
         <div class="form-container">
 
-            <form id="create-cocktail-form" style="">
+            <form id="create-cocktail-form">
 
             <h3>Enter the cocktail!</h3>
           
-            <input id='input-name' type="text" name="name" value="" placeholder="Name of cocktail" class="input-text">
+            <input id='input-title' type="text" name="title" placeholder="Name of cocktail" class="input-text">
             <br><br>
-            <textarea id='input-description' name="description" rows="8" cols="80" value="" placeholder="Description of the Cocktail"></textarea>
+            <textarea id='input-description' name="description" rows="8" cols="10" placeholder="Description of the Cocktail"></textarea>
             <br><br>
-            <input id='input-bar' type="text" name="bar" value="" placeholder="Enter the bar where it's made" class="input-text">
+            <input id='input-bar' type="text" name="bar" placeholder="Enter the bar where it's made" class="input-text">
             <br><br>
 
         
-            <select id="categories" name="categories">
+            <select id="neighborhoods" name="neighborhoods">
               <option value="1">Greenpoint</option>
               <option value="2">Williamsburg</option>
               <option value="3">Dumbo</option>
@@ -38,11 +40,18 @@
           </form>
 
         </div><br>
+
+        <input id="seachbar" onkeyup "search_cocktail()" type="text" name="search" placeholder="search for cocktails!">
+        <input id= 'create-button' type="submit" name="submit" value="Search Cocktail" class="submit">
+
+  
+        <script src="./cocktails.js"></script>
+
+        <div id="cocktail-container">
+          <h1>Your Cocktail Archive!</h1>
+          <br><br>  
+        </div>
           
-        
-            
-
-
         </div>
     </body>
     </html>
