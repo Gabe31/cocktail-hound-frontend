@@ -5,6 +5,7 @@
         <title></title>
         <script type="text/javascript" src="src/cocktail.js"></script>
         <script type="text/javascript" src="src/index.js"></script>
+        <script type="text/javascript" src="src/searchbar.js"></script>
         <link rel="stylesheet" href="style.css">
       </head>
     
@@ -41,8 +42,10 @@
 
         </div><br>
 
-        <input id="seachbar" onkeyup "search_cocktail()" type="text" name="search" placeholder="search for cocktails!">
-        <input id= 'create-button' type="submit" name="submit" value="Search Cocktail" class="submit">
+        <div class="search-bar">
+          <input type="text" placeholder="Search for Cocktails" id="search-bar">
+          <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
 
   
         <script src="./cocktails.js"></script>
