@@ -1,4 +1,4 @@
-const endPoint = "http://localhost:3000/api/v1/neighborhoods" 
+const endPoint = "http://localhost:3000/api/v1/cocktails" 
 
 document.addEventListener('DOMContentLoaded', () => {
     getCocktails()
@@ -9,31 +9,32 @@ document.addEventListener('DOMContentLoaded', () => {
     createCocktailForm.addEventListener("submit", (e) => createFormHandler(e))
 })
 
+document.addEventListener("click", function(e) {
+  const cocktailCard = document.getElementById(`${e.target.dataset.id}`)
+
+  if(e.target.matches("#delete-btn")) {
+    e.preventDefault()
+    deleteAdventure(e.target.dataset.id)
+    cocktailCard.remove(cocktailCard)
+  }
+})
+
+function getCocktails () {
     fetch(endPoint)
     .then(response => response.json())
     .then(cocktails => {
+      
       cocktails.data.forEach(cocktail => {
         
-        render(cocktail)
+    
+        let newCocktail = new Cocktail(cocktail, cocktail.attributes)
+
+        document.querySelector('#cocktail-container').innerHTML += newCocktail.renderCocktail()
       })
     })
 }
 
-function render(cocktail) {
-    const cocktailMarkup = `
-      <div data-id=${cocktail.id}>
-        <h3>${cocktail.attributes.title}</h3>
-        <p><strong>Description:</strong> ${cocktail.attributes.description}</p>
-        <p><strong>Bar:</strong> ${cocktail.attributes.bar}</p>
-        
-        <p><strong>Neighborhood:</strong> ${cocktail.attributes.neighborhood.name}</p>
-        <button data-id=${cocktail.id}>edit</button>
-      </div>
-      <br><br>`;
-  
-    document.querySelector('#cocktail-container').innerHTML += cocktailMarkup
-  }
-  
+
   
   function createFormHandler(e) {
     e.preventDefault()
@@ -69,6 +70,5 @@ function deleteCocktail(id) {
     method: "DELETE" 
 })
   .then(response => response.json())
-  .then(response => console.log(response))
 
 }
