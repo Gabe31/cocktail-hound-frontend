@@ -15,7 +15,7 @@ class Cocktail {
             <h3>${this.title}</h3>
             <p><strong>Description:</strong> ${this.description}</p>
             <p><strong>Bar:</strong> ${this.bar}</p>
-            <p><strong>Neighborhood:</strong> ${this.category.neighborhood}</p>
+            <p><strong>Neighborhood:</strong> ${this.neighborhood}</p>
           </div>
           <div class="btn-group">
               <button data-id=${this.id} id="delete-btn" type="button" class="btn">Delete Cocktail</button>

@@ -45,7 +45,7 @@ function render(cocktail) {
   }
 
   function postCocktails(title, description, bar, neighborhood_id) {
-    let bodyObj = {title, description, bar, category_id}
+    let bodyObj = {title, description, bar, neighborhood_id}
     
     fetch(endPoint, {
       method: "POST",
