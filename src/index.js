@@ -14,7 +14,7 @@ document.addEventListener("click", function(e) {
 
   if(e.target.matches("#delete-btn")) {
     e.preventDefault()
-    deleteAdventure(e.target.dataset.id)
+    deleteCocktail(e.target.dataset.id)
     cocktailCard.remove(cocktailCard)
   }
 })
@@ -41,8 +41,8 @@ function getCocktails () {
     const titleInput = document.querySelector('#input-title').value
     const descriptionInput = document.querySelector('#input-description').value
     const barInput = document.querySelector('#input-bar').value
-    const neighborhoodId = parseInt(document.querySelector('#neighborhoods').value)
-    postAdventures (titleInput, descriptionInput, barInput, neighborhoodId)
+    const neighborhoodId = parseInt(document.querySelector('#neighborhood').value)
+    postCocktails (titleInput, descriptionInput, barInput, neighborhoodId)
   }
 
   function postCocktails(title, description, bar, neighborhood_id) {
