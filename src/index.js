@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.addEventListener("click", function(e) {
   const cocktailCard = document.getElementById(`${e.target.dataset.id}`)
-
+  console.log(cocktailCard) 
   if(e.target.matches("#delete-btn")) {
     e.preventDefault()
     deleteCocktail(e.target.dataset.id)
