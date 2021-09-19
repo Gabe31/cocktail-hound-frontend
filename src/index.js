@@ -19,7 +19,7 @@ document.addEventListener("click", function(e) {
   }
 })
 
-function getCocktails () {
+function getCocktails (e) {
     fetch(endPoint)
     .then(response => response.json())
     .then(cocktails => {
@@ -29,7 +29,8 @@ function getCocktails () {
     
         let newCocktail = new Cocktail(cocktail, cocktail.attributes)
 
-        document.querySelector('#cocktail-container').innerHTML += newCocktail.renderCocktail()
+        document.querySelector('#cocktail-container').innerHTML += newCocktail.renderCocktail();
+
       })
     })
 }
@@ -61,14 +62,17 @@ function getCocktails () {
 
       document.querySelector('#cocktail-container').innerHTML += newCocktail.renderCocktailCard()
 })
+      this.location.reload()
 }
 
 
 function deleteCocktail(id) {
-
+  
  fetch(`${endPoint}/${id}`, {
     method: "DELETE" 
 })
   .then(response => response.json())
+
+  this.location.reload()
 
 }
