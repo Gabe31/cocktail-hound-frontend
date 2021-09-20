@@ -6,10 +6,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const createCocktailForm = document.querySelector ("#create-cocktail-form")
 
-    createCocktailForm.addEventListener("submit", (e) => createFormHandler(e))
+    createCocktailForm.addEventListener("submit", createFormHandler)
 })
 
-document.addEventListener("click", function(e) {
+document.addEventListener("click", (e) => {
   const cocktailCard = document.getElementById(`${e.target.dataset.id}`)
   console.log(cocktailCard) 
   if(e.target.matches("#delete-btn")) {
